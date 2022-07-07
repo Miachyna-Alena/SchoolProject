@@ -2,17 +2,30 @@ package by.itstep.miachyna.javalessons.javalesson21.model.logic;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class SchoolManagerTest {
 
-    private int[][] groups;
+//  private int[][] groups;
+    private static int[][] groups;
 
-    @Before
-    public void init() {
-        System.out.println("@Before");
+    public SchoolManagerTest() {
+        System.out.println("SchoolManagerTest constructor");
+    }
+
+//  @Before
+//  public void init() {
+//      System.out.println("@Before");
+//      groups = new int[][]{
+//              {7, 7, 8, 2},
+//              {9, 8, 9, 10},
+//              {7, 7, 1},
+//              {8, 8, 10, 10}
+//      };
+//  }
+    @BeforeClass
+    public static void init() {
+        System.out.println(" @BeforeClass");
         groups = new int[][]{
                 {7, 7, 8, 2},
                 {9, 8, 9, 10},
@@ -21,9 +34,14 @@ public class SchoolManagerTest {
         };
     }
 
-    @After
-    public void destroy() {
-        System.out.println("@After");
+//  @After
+//  public void destroy() {
+//      System.out.println("@After");
+//      groups = null;
+//  }
+    @AfterClass
+    public static void destroy() {
+        System.out.println("@AfterClass");
         groups = null;
     }
 
@@ -33,7 +51,7 @@ public class SchoolManagerTest {
 
         //int[][] groups = getGroups();
 
-        double expected = 8.0;
+        double expected = 7.4;
         double actual = SchoolManager.calculateAvgMark(groups);
 
         assertEquals(expected, actual, 0.5);
